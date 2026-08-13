@@ -1,0 +1,10 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  <text x="64" y="82" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#10110F">KINEGRANT</text>
+  <text x="64" y="195" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2" fill="#686960">AUTHORIZATION INFRASTRUCTURE FOR PHYSICAL AI</text>
+  <text x="58" y="330" font-family="Arial, sans-serif" font-size="102" font-weight="700" letter-spacing="-7" fill="#10110F">INTELLIGENCE IS</text>
+  <text x="58" y="425" font-family="Arial, sans-serif" font-size="102" font-weight="700" letter-spacing="-7" fill="#10110F">NOT PERMISSION.</text>
+  <line x1="64" y1="527" x2="1136" y2="527" stroke="#10110F" stroke-width="2"/>
+  <circle cx="283" cy="527" r="8" fill="#10110F"/><circle cx="584" cy="527" r="8" fill="#10110F"/><circle cx="853" cy="527" r="8" fill="#10110F"/>
+  <text x="64" y="575" font-family="monospace" font-size="15" font-weight="700" fill="#10110F">REQUEST → POLICY → CAPABILITY → LOCAL GATE → ACTION → RECEIPT</text>
+</svg>

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.org",
+  "@type": "Project",
+  "@id": "https://kinegrant.com/#project",
+  "name": "KineGrant",
+  "alternateName": [
+    "KineGrant Protocol",
+    "KGP-001"
+  ],
+  "url": "https://kinegrant.com/",
+  "founder": "Zoah",
+  "description": {
+    "en": "An experimental open authorization and accountability protocol for Physical AI systems.",
+    "zh-CN": "面向物理 AI 系统的实验性开放授权与问责协议。"
+  },
+  "canonicalDefinition": {
+    "en": "Physical AI authorization decides and proves whether a specific agent may cause a specific machine to perform a specific real-world action, for a defined purpose and limited time.",
+    "zh-CN": "物理 AI 授权是在机器执行现实世界动作之前，判定并证明某个特定智能体是否被允许让某台特定机器，在限定目的和时间内执行某个特定动作的过程。"
+  },
+  "protocolFlow": [
+    "Action Request",
+    "Policy Evaluation",
+    "Short-lived Capability",
+    "Local Action Gate",
+    "Physical Action",
+    "Signed Receipt"
+  ],
+  "status": {
+    "protocol": "KGP-001 Experimental Open Draft 0.1",
+    "referenceImplementation": "v0.1.1",
+    "license": "Apache-2.0"
+  },
+  "properties": [
+    "scoped",
+    "short-lived",
+    "single-use",
+    "locally verifiable",
+    "replay-protected",
+    "signed receipt"
+  ],
+  "boundaries": [
+    "not a robot operating system",
+    "not a motion planner",
+    "not a functional-safety controller",
+    "not a legal authority",
+    "not a recognized standard"
+  ],
+  "primarySources": {
+    "specification": "https://github.com/zoahdev/kinegrant-protocol/blob/main/spec/KGP-001.md",
+    "sourceCode": "https://github.com/zoahdev/kinegrant-protocol",
+    "threatModel": "https://github.com/zoahdev/kinegrant-protocol/blob/main/spec/THREAT-MODEL.md",
+    "machinePermissionTest": "https://kinegrant.com/challenge",
+    "verifier": "https://kinegrant.com/verify",
+    "englishExplanation": "https://kinegrant.com/physical-ai-authorization",
+    "chineseExplanation": "https://kinegrant.com/zh/physical-ai-authorization"
+  }
+}

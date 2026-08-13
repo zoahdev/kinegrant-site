@@ -1,0 +1,148 @@
+{
+  "cases": [
+    {
+      "evidence": {
+        "actuator_calls": 0,
+        "rejection": "ValueError: unsupported signature algorithm"
+      },
+      "expected": "DENY with zero actuator calls",
+      "id": "MPT-001",
+      "name": "No capability means no action",
+      "observed": "DENY with 0 actuator calls",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "actuator_calls": 1,
+        "capability_id": "kinegrant:cap:c05273a51cc0ef16931c1f869da3f089fefbed66aa5ab537b8cc885a21ed3520"
+      },
+      "expected": "ALLOW with one actuator call",
+      "id": "MPT-002",
+      "name": "Valid capability executes exactly once",
+      "observed": "ALLOW with 1 actuator call",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "actuator_calls": 1,
+        "second_attempt": "PermissionError: capability replay detected"
+      },
+      "expected": "First ALLOW, second DENY, one actuator call total",
+      "id": "MPT-003",
+      "name": "Consumed capability cannot be replayed",
+      "observed": "First ALLOW, second DENY, 1 actuator call total",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "actuator_calls": 0,
+        "attempts": {
+          "action": {
+            "reason": "PermissionError: capability does not authorize this request",
+            "rejected": true
+          },
+          "agent": {
+            "reason": "PermissionError: capability does not authorize this request",
+            "rejected": true
+          },
+          "purpose": {
+            "reason": "PermissionError: capability does not authorize this request",
+            "rejected": true
+          },
+          "target": {
+            "reason": "PermissionError: capability does not authorize this request",
+            "rejected": true
+          }
+        }
+      },
+      "expected": "DENY modified agent, target, action, and purpose",
+      "id": "MPT-004",
+      "name": "Capability binding rejects modified request fields",
+      "observed": "DENY 4 of 4 modified requests",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "actuator_calls": 0,
+        "rejection": "PermissionError: untrusted capability issuer"
+      },
+      "expected": "DENY with zero actuator calls",
+      "id": "MPT-005",
+      "name": "Untrusted capability issuer is rejected",
+      "observed": "DENY with zero actuator calls",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "actuator_calls": 0,
+        "rejection": "PermissionError: capability has expired",
+        "verification_time": "2026-08-10T16:10:17.677597Z"
+      },
+      "expected": "DENY at expires_at with zero actuator calls",
+      "id": "MPT-006",
+      "name": "Expired capability is rejected",
+      "observed": "DENY at expires_at",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "actuator_calls": 1,
+        "allowed": 1,
+        "attempts": 64,
+        "denied": 63
+      },
+      "expected": "Exactly one ALLOW across 64 concurrent attempts",
+      "id": "MPT-007",
+      "name": "Concurrent consumption has one winner",
+      "observed": "1 ALLOW and 63 DENY",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "actuator_calls": 1,
+        "persistent_store": "SQLiteReplayStore",
+        "restart_rejection": "PermissionError: capability replay detected"
+      },
+      "expected": "First process ALLOW, restarted gate DENY",
+      "id": "MPT-008",
+      "name": "Replay remains rejected after gate restart",
+      "observed": "First gate ALLOW, restarted gate DENY",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "receipt_id": "kinegrant:receipt:245615cd7b264c0dcdae63fb3bec89dd3706db3c4b610cf36d64ce2f632447df",
+        "tamper_rejected": true,
+        "trusted_valid": true,
+        "untrusted_executor_rejected": true
+      },
+      "expected": "Trusted receipt valid; tampered and untrusted receipts invalid",
+      "id": "MPT-009",
+      "name": "Receipt trust and integrity are enforced",
+      "observed": "trusted=VALID, tampered=REJECTED, untrusted=REJECTED",
+      "passed": true
+    }
+  ],
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_implementation": "CPython",
+    "python_version": "3.12.13"
+  },
+  "generated_at": "2026-08-10T16:10:07.735178Z",
+  "limitations": [
+    "This software test does not prove physical-world actuation or functional safety.",
+    "Receipts prove signed executor attestations, not independent physical truth."
+  ],
+  "overall_result": "PASS",
+  "protocol": "KGP-001 Experimental Open Draft 0.1",
+  "reference_implementation": "0.1.1",
+  "run_id": "urn:kinegrant:mpt:run:addb699a-031a-4e40-b096-b57753351d03",
+  "runner_digest": "sha256:111fd7c56fd4da992e818f125ba711c0979bc69b3bbfc0912fea1642926f5a0a",
+  "schema_version": "0.1",
+  "source_commit": "0e84cd2b53e8bfe0b8c147fb9feb62c91aac30ed",
+  "summary": {
+    "failed": 0,
+    "passed": 9,
+    "total": 9
+  }
+}

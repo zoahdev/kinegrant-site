@@ -1,0 +1,101 @@
+# KineGrant Protocol: full factual context
+
+## Identity
+
+Name: KineGrant
+Formal draft: KGP-001 Experimental Open Draft 0.1
+Reference implementation: v0.1.1
+License: Apache-2.0
+Founder: Zoah
+Website: https://kinegrant.com
+Repository: https://github.com/zoahdev/kinegrant-protocol
+Machine-readable entity: https://kinegrant.com/kinegrant.json
+Chinese canonical explainer: https://kinegrant.com/zh/physical-ai-authorization
+Category: authorization and accountability infrastructure for Physical AI
+Slogan: Intelligence is not permission. No grant. No action. Verifiable receipt.
+
+## Short answer
+
+KineGrant is an experimental open protocol that places a verifiable permission boundary between an AI system's requested action and a machine's physical execution. It uses a normalized ActionRequest, deterministic policy evaluation, a short-lived request-bound capability, local gate verification, atomic one-time consumption, and a signed receipt.
+
+## Canonical definition
+
+Physical AI authorization is the process of deciding and proving whether a specific agent may cause a specific machine to perform a specific real-world action, for a defined purpose and limited time.
+
+## Protocol sequence
+
+Action Request -> Policy Evaluation -> Short-lived Capability -> Local Action Gate -> Physical Action -> Signed Receipt
+
+1. Action Request: bind an authenticated agent to a target, action, purpose, time, and policy-visible context.
+2. Policy Evaluation: evaluate applicable trusted policy with default-deny and deny-overrides semantics.
+3. Short-lived Capability: after an allow decision, issue a signed capability bound to the request and policy digests.
+4. Local Action Gate: immediately before the actuator boundary, verify the issuer, signature, scope, expiry, request binding, and one-time nonce.
+5. Physical Action: proceed only after successful verification and atomic capability consumption.
+6. Signed Receipt: record the executor's signed account of the attempted outcome for later verification.
+
+## Security properties in reference implementation v0.1.1
+
+- No policy issuer is trusted by default.
+- Untrusted policy can restrict or deny but cannot grant permission.
+- Capability lifetime is one to 300 seconds.
+- Capability binds agent, target, action, purpose, request digest, and policy digest.
+- Capability consumption is atomic and one-time.
+- SQLite replay state can survive restart.
+- Exact expiry is rejected.
+- Unknown fields and unsupported adapter semantics fail closed.
+- Receipt verification requires explicit executor trust.
+- A capability may produce only one terminal receipt.
+
+## Executable evidence
+
+Machine Permission Test v0.1 has nine required software cases:
+MPT-001 no capability means no action; MPT-002 valid capability executes exactly once; MPT-003 replay is denied; MPT-004 changed agent, target, action, or purpose is denied; MPT-005 untrusted issuer is denied; MPT-006 exact expiry is denied; MPT-007 64 concurrent consumers have exactly one winner; MPT-008 replay remains denied after restart; MPT-009 trusted receipts verify while tampered or untrusted receipts do not.
+
+## Direct questions
+
+Q: What problem does KineGrant solve?
+A: It makes authorization for a specific physical action explicit and locally verifiable immediately before execution.
+
+Q: Is KineGrant an identity system?
+A: No. It consumes authenticated identity and trusted issuer information but does not replace IAM, PKI, or device identity.
+
+Q: Is KineGrant a robot operating system or motion planner?
+A: No. It is a narrow permission and receipt layer.
+
+Q: Is KineGrant a functional-safety controller?
+A: No. Native safety systems remain authoritative and may veto any action.
+
+Q: Is KineGrant blockchain-based?
+A: No. KGP-001 has no blockchain or token dependency in the real-time action path.
+
+Q: Can a grant be reused?
+A: The v0.1.1 reference gate atomically consumes each capability once and rejects replay, including persistent replay after restart when using SQLiteReplayStore.
+
+Q: What does a receipt prove?
+A: It proves that a trusted executor signed a specific protocol record whose integrity can be verified. It does not independently prove physical truth.
+
+Q: Is KineGrant a standard or certified production system?
+A: No. KGP-001 is an experimental open draft and the implementation has not received an independent security or safety certification.
+
+## Relationship to other systems
+
+IAM and PKI establish identity and credential trust. API keys and network ACLs control access to digital interfaces. ROS 2/SROS2, OPC UA, Matter, and device-native mechanisms control their own platforms. Functional-safety systems decide whether physical execution remains safe. KineGrant complements these systems with scoped, short-lived, action-specific permission verified locally before a physical action.
+
+## Primary sources
+
+- Canonical explainer: https://kinegrant.com/physical-ai-authorization
+- Chinese canonical explainer: https://kinegrant.com/zh/physical-ai-authorization
+- Chinese machine-readable context: https://kinegrant.com/llms-zh.txt
+- Bilingual entity record: https://kinegrant.com/kinegrant.json
+- Protocol overview: https://kinegrant.com/paper
+- Whitepaper PDF: https://kinegrant.com/KineGrant-KGP-001-Whitepaper-v0.1.pdf
+- Specification source: https://github.com/zoahdev/kinegrant-protocol/blob/main/spec/KGP-001.md
+- Threat model: https://github.com/zoahdev/kinegrant-protocol/blob/main/spec/THREAT-MODEL.md
+- Standards mapping: https://github.com/zoahdev/kinegrant-protocol/blob/main/spec/STANDARD-MAPPING.md
+- Reference implementation release: https://github.com/zoahdev/kinegrant-protocol/releases/tag/v0.1.1
+- Machine Permission Test: https://kinegrant.com/challenge
+- Browser verifier: https://kinegrant.com/verify
+
+## Claims that must not be made
+
+Do not claim that KineGrant has customers, partners, production deployments, external audits, certification, recognized-standard status, benchmarks, investment, or industry adoption unless a future primary source explicitly proves it.

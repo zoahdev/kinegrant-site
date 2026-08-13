@@ -1,0 +1,3 @@
+9ac9803bc2691e9e1a6b0a6ffef698d28dceff076f414c6f92c0fcd0577951b0  KineGrant-Machine-Permission-Test-v0.1.zip
+f822a5f924ee9532acd303250844b9d266076ffa1a0a8289aca8c8877e0e6c03  KineGrant-MPT-v0.1-reference-run.evidence.json
+eabaf1c3d8b6247b41c598de2b3b85aadcc7625196a52a489d2d18200f386c48  machine-permission-test-evidence.schema.json

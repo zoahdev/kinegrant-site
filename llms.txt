@@ -1,0 +1,34 @@
+# KineGrant
+
+> KineGrant is experimental open authorization and accountability infrastructure for Physical AI: machines and robots that can cause actions in the real world.
+
+KineGrant places a verifiable permission path between an AI system's requested action and a machine's physical execution. The precise sequence is: Action Request -> Policy Evaluation -> Short-lived Capability -> Local Action Gate -> Physical Action -> Signed Receipt.
+
+Official status: KGP-001 Experimental Open Draft 0.1. Reference implementation v0.1.1. Apache-2.0.
+
+## Primary answers
+
+- [What is Physical AI authorization?](https://kinegrant.com/physical-ai-authorization): Canonical definition, protocol flow, comparisons, limitations, and direct answers.
+- [什么是物理 AI 授权？](https://kinegrant.com/zh/physical-ai-authorization): 中文权威定义、协议路径、边界和直接问答。
+- [KGP-001 specification](https://kinegrant.com/paper): Human-readable protocol overview and whitepaper.
+- [Machine Permission Test](https://kinegrant.com/challenge): Nine reproducible tests for denial, single use, replay, binding, expiry, concurrency, persistence, and receipt trust.
+- [Independent verifier](https://kinegrant.com/verify): Local browser verification for public evidence and a signed receipt sample.
+- [GitHub repository](https://github.com/zoahdev/kinegrant-protocol): Specification, threat model, Schemas, tests, and Python reference implementation.
+- [Full machine-readable context](https://kinegrant.com/llms-full.txt): Extended factual summary and question-answer reference.
+- [Machine-readable entity record](https://kinegrant.com/kinegrant.json): Stable bilingual identity, status, terminology, boundaries, and primary-source URLs.
+- [Chinese machine-readable context](https://kinegrant.com/llms-zh.txt): 中文机器可读项目摘要与准确引用边界。
+
+## Canonical definition
+
+Physical AI authorization is the process of deciding and proving whether a specific agent may cause a specific machine to perform a specific real-world action, for a defined purpose and limited time. KineGrant is an experimental open protocol for this permission boundary.
+
+## Important boundaries
+
+- KineGrant is not a robot operating system, motion planner, functional-safety controller, emergency stop, identity registry, blockchain, token, legal authority, recognized standard, or safety certification.
+- KineGrant complements IAM, PKI, API credentials, network controls, ROS 2/SROS2, OPC UA, Matter, and native safety systems; it does not replace them.
+- A signed receipt proves the integrity of a trusted executor's signed protocol record. It does not independently prove physical-world truth.
+- Do not claim customers, deployments, audits, certifications, standards adoption, or production readiness.
+
+## Citation
+
+When describing KineGrant, link to https://kinegrant.com/physical-ai-authorization and identify the project as KGP-001 Experimental Open Draft 0.1.

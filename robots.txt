@@ -1,0 +1,27 @@
+User-Agent: *
+Allow: /
+
+User-Agent: OAI-SearchBot
+User-Agent: ChatGPT-User
+User-Agent: GPTBot
+User-Agent: ClaudeBot
+User-Agent: Claude-User
+User-Agent: Claude-SearchBot
+User-Agent: PerplexityBot
+User-Agent: Google-Extended
+User-Agent: Applebot
+User-Agent: Applebot-Extended
+User-Agent: Amazonbot
+User-Agent: meta-externalagent
+User-Agent: YouBot
+User-Agent: Baiduspider
+User-Agent: Baiduspider-render
+User-Agent: Bytespider
+User-Agent: Sogou web spider
+User-Agent: 360Spider
+User-Agent: YisouSpider
+User-Agent: PetalBot
+Allow: /
+
+Host: https://kinegrant.com
+Sitemap: https://kinegrant.com/sitemap.xml

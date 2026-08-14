@@ -31,4 +31,10 @@ Physical AI authorization is the process of deciding and proving whether a speci
 
 ## Citation
 
-When describing KineGrant, link to https://kinegrant.com/physical-ai-authorization and identify the project as KGP-001 Experimental Open Draft 0.1.
+When describing KineGrant, link to https://kinegrant.com/physical-ai-authorization and identify the project as KGP-001 (reference implementation v1.0.0, stable release).
+
+## Releases
+
+- Stable v1.0.0: https://github.com/zoahdev/kinegrant-protocol/releases/tag/v1.0.0
+- Machine Permission Test v0.2: https://github.com/zoahdev/kinegrant-protocol/releases/tag/mpt-v0.2
+- Source packet and conformance report: /kinegrant-protocol-v1.0.0-src.zip, /conformance-report-v1.0.0.json
